@@ -1,1 +1,279 @@
-<div>HELLO WORLD</div>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compitable" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome Free -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="/main.css" />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <div class="frame">
+      <div class="main_frame">
+        <div class="left_frame">
+          <div class="left_1">
+            <div class="left_1_1">
+              <img
+                src="images/Profile.png"
+                width="156px"
+                height="142px"
+                alt=""
+              />
+            </div>
+            <div class="left_1_2"><%=user.name%></div>
+            <div class="left_1_3"><%=user.profession%></div>
+            <div class="left_icons">
+              <a href="" class="link_href"
+                ><div class="icon"><i class="fab fa-facebook"></i></div
+              ></a>
+              <a href="" class="link_href"
+                ><div class="icon"><i class="fab fa-instagram"></i></div
+              ></a>
+              <a href="" class="link_href"
+                ><div class="icon"><i class="fab fa-twitter"></i></div
+              ></a>
+              <a href="" class="link_href"
+                ><div class="icon"><i class="fab fa-linkedin-in"></i></div
+              ></a>
+              <a href="" class="link_href"
+                ><div class="icon"><i class="fa-brands fa-youtube"></i></div
+              ></a>
+              <a href="" class="link_href"
+                ><div class="icon"><i class="fa-brands fa-dribbble"></i></div
+              ></a>
+            </div>
+          </div>
+          <div class="marginer"></div>
+          <div class="left_2">
+            <div class="left_info">
+              <p>Age:</p>
+              <p>Residence:</p>
+              <p>Freelance:</p>
+              <p>Address:</p>
+            </div>
+            <div class="left_user">
+              <p><%=user.age%></p>
+              <p><%=user.residence%></p>
+              <p class="avialable">Available</p>
+              <p>Seoul</p>
+            </div>
+          </div>
+          <div class="marginer"></div>
+          <div class="left_3">
+            <p>Languages</p>
+            <div class="progress_row">
+              <p class="progress_name">Uzbek</p>
+              <p class="progress_percentage">100%</p>
+            </div>
+            <div class="progress_bar">
+              <div class="progress_fill" style="width: 100%"></div>
+            </div>
+            <div class="progress_row">
+              <p class="progress_name">English</p>
+              <p class="progress_percentage">80%</p>
+            </div>
+            <div class="progress_bar">
+              <div class="progress_fill" style="width: 80%"></div>
+            </div>
+            <div class="progress_row">
+              <p class="progress_name">Korean</p>
+              <p class="progress_percentage">60%</p>
+            </div>
+            <div class="progress_bar">
+              <div class="progress_fill" style="width: 60%"></div>
+            </div>
+          </div>
+          <div class="marginer"></div>
+          <div class="left_4">
+            <p>Skills</p>
+            <div class="progress_row">
+              <p class="progress_name">HTML</p>
+              <p class="progress_percentage">90%</p>
+            </div>
+            <div class="progress_bar">
+              <div class="progress_fill" style="width: 90%"></div>
+            </div>
+            <div class="progress_row">
+              <p class="progress_name">CSS</p>
+              <p class="progress_percentage">85%</p>
+            </div>
+            <div class="progress_bar">
+              <div class="progress_fill" style="width: 85%"></div>
+            </div>
+            <div class="progress_row">
+              <p class="progress_name">JS</p>
+              <p class="progress_percentage">80%</p>
+            </div>
+            <div class="progress_bar">
+              <div class="progress_fill" style="width: 80%"></div>
+            </div>
+            <div class="progress_row">
+              <p class="progress_name">PHP</p>
+              <p class="progress_percentage">75%</p>
+            </div>
+            <div class="progress_bar">
+              <div class="progress_fill" style="width: 75%"></div>
+            </div>
+            <div class="progress_row">
+              <p class="progress_name">WordPress</p>
+              <p class="progress_percentage">85%</p>
+            </div>
+            <div class="progress_bar">
+              <div class="progress_fill" style="width: 85%"></div>
+            </div>
+          </div>
+          <div class="marginer"></div>
+          <div class="left_5">
+            <p>Extra Skills</p>
+            <div class="extars">
+              <img
+                src="icons/extraicon.svg"
+                alt=""
+                width="15px"
+                height="15px"
+              />
+              <p>Bootstrap, Materialize</p>
+            </div>
+            <div class="extars">
+              <img
+                src="icons/extraicon.svg"
+                alt=""
+                width="15px"
+                height="15px"
+              />
+              <p>Git Knowledge</p>
+            </div>
+            <div class="extars">
+              <img
+                src="icons/extraicon.svg"
+                alt=""
+                width="15px"
+                height="15px"
+              />
+              <p>Stylus, Sass, Less</p>
+            </div>
+            <div class="extars">
+              <img
+                src="icons/extraicon.svg"
+                alt=""
+                width="15px"
+                height="15px"
+              />
+              <p>Gulp, Webpack, Grunt</p>
+            </div>
+          </div>
+        </div>
+        <div class="midd_frame">
+          <div class="top_frame">
+            <div class="top_frame_left">
+              <p class="position"><%= user.work_place %></p>
+              <p class="defination"><%= user.service_desc%></p>
+              <button class="btn btn-warning">
+                HIRE ME <img src="btn_item/Frame.svg" alt="" />
+              </button>
+            </div>
+            <div class="top_frame_right">
+              <img src="images/inson.jpg" alt="" />
+            </div>
+          </div>
+          <div class="bottom_frame">
+            <div class="bottom_frame_info">
+              <h1>My Services</h1>
+              <p>Amet Minim Mollit Non Deserunt Ullamco Est Sit Aliqua Dolor</p>
+              <p>
+                Do Amet Sint. Velit Officia Consequat Duis Enim Velit Mollit.
+              </p>
+              <p>Lorem Ipsum</p>
+            </div>
+            <div class="bottom_frame_services">
+              <div class="bottom_frame_service">
+                <img
+                  src="icons/coding.jpg"
+                  alt=""
+                  style="margin-bottom: 15px"
+                />
+                <p class="service_name">Web Development</p>
+                <p class="service_info">Blog, E-Commerce</p>
+              </div>
+              <div class="bottom_frame_service">
+                <img
+                  src="icons/illustration.jpg"
+                  alt=""
+                  style="margin-bottom: 15px"
+                />
+                <p class="service_name">UI/UX Design</p>
+                <p class="service_info">Mobile App, Website Design</p>
+              </div>
+              <div class="bottom_frame_service">
+                <img
+                  src="icons/Microphone.svg"
+                  alt=""
+                  style="margin-bottom: 15px"
+                />
+                <p class="service_name">Sound Design</p>
+                <p class="service_info">Voice Over, Beat Making</p>
+              </div>
+              <div class="bottom_frame_service">
+                <img
+                  src="icons/gameDevelopment.png"
+                  alt=""
+                  style="margin-bottom: 15px"
+                />
+                <p class="service_name">Game Design</p>
+                <p class="service_info">Character Design, Props & Objects</p>
+              </div>
+              <div class="bottom_frame_service">
+                <img
+                  src="icons/Photographer.png"
+                  alt=""
+                  style="margin-bottom: 15px"
+                />
+                <p class="service_name">Photography</p>
+                <p class="service_info">Portrait, Product Phtography</p>
+              </div>
+              <div class="bottom_frame_service">
+                <h3>Advertising</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae
+                  nulla diam in ac dictum a urna viverra morbi.
+                </p>
+                <a href="">ORDER NOW ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="right_frame">
+          <div class="iconcha">
+            <img src="icons/contrast.png" alt="" />
+          </div>
+          <div class="menus">
+            <img src="icons/home.png" alt="" />
+            <img src="icons/services.png" alt="" />
+            <img src="icons/cv.png" alt="" />
+            <img src="icons/portfolio.png" alt="" />
+            <img src="icons/Blog.png" alt="" />
+            <img src="icons/contact.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
