@@ -1,4 +1,4 @@
-console.log("Jack Ma maslahatlari:");
+/* console.log("Jack Ma maslahatlari:");
 
 const list = [
   "Yaxshi talaba bo'ling", // 0-20
@@ -9,10 +9,9 @@ const list = [
   "Endi dam oling, foydasi yoq endi", // 60"
 ];
 
+//Callback functions
 
-//Callback functions 
-
-/* function maslahatBering(a, callback) {
+function maslahatBering(a, callback) {
   if (typeof a !== "number") callback("Please, insert a number", null);
   else if (a < 20) callback(null, list[0]);
   else if (a > 20 && a <= 30) callback(null, list[1]);
@@ -32,7 +31,7 @@ maslahatBering(65, (err, data) => {
   } else {
     console.log("Javob:", data);
   }
-}); */
+}); 
 
 //Asynchronious functions
 
@@ -54,26 +53,30 @@ async function maslahatBering(a) {
 
 // call via then/catch
 
-/* maslahatBering(25)
+ maslahatBering(25)
   .then((data) => {
     console.log("Javob:", data);
   })
   .catch((err) => {
     console.log("ERROR:", err);
-  }); */
+  }); 
 
 // call with async/ await
 
 async function run() {
-  let javob = await maslahatBering(20);
-  console.log(javob);
-  javob = await maslahatBering(65);
-  console.log(javob);
-  javob = await maslahatBering(43);
-  console.log(javob);
+  try {
+    let javob = await maslahatBering(20);
+    console.log(javob);
+    javob = await maslahatBering(65);
+    console.log(javob);
+    javob = await maslahatBering(43);
+    console.log(javob);
+  } catch (err) {
+    console.log("ERROR:", err.message);
+  }
 }
 
-run();
+run(); */
 
 // A-task
 function countLetter(harf, gap) {
@@ -90,3 +93,15 @@ function countLetter(harf, gap) {
 }
 
 countLetter("l", "Abdullajon");
+
+// B-task
+function countDigit(a) {
+  if (typeof a !== "string") {
+    console.log("Iltimos, qo'shtirnoq ichida string kiriting");
+  } else {
+    const numbers = a.split("").length;
+    console.log(`Siz yozgan string tarkibida ${numbers} dona belgi qatnashgan`);
+  }
+}
+
+countDigit("dsdfnd");
