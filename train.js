@@ -99,9 +99,10 @@ function countDigit(a) {
   if (typeof a !== "string") {
     console.log("Iltimos, qo'shtirnoq ichida string kiriting");
   } else {
-    const numbers = a.split("").length;
-    console.log(`Siz yozgan string tarkibida ${numbers} dona belgi qatnashgan`);
+    const arraycha = a.split("");
+    const numbers = arraycha.filter(e =>!isNaN(e)).length;
+    console.log(`Siz yozgan string tarkibida ${numbers} dona raqam qatnashgan`);
   }
 }
 
-countDigit("dsdfnd");
+countDigit("dsdf3457628hdasaskb3452nd");
