@@ -100,9 +100,45 @@ function countDigit(a) {
     console.log("Iltimos, qo'shtirnoq ichida string kiriting");
   } else {
     const arraycha = a.split("");
-    const numbers = arraycha.filter(e =>!isNaN(e)).length;
+    const numbers = arraycha.filter((e) => !isNaN(e)).length;
     console.log(`Siz yozgan string tarkibida ${numbers} dona raqam qatnashgan`);
   }
 }
 
 countDigit("dsdf3457628hdasaskb3452nd");
+
+// C-task
+
+class magazin {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
+  }
+
+  qoldiq() {
+    const vaqt = new Date();
+    const hour = vaqt.getHours() < 10 ? "0" + vaqt.getHours() : vaqt.getHours();
+    const minutes =
+      vaqt.getMinutes() < 10 ? "0" + vaqt.getMinutes() : vaqt.getMinutes();
+
+    console.log(
+      `${hour}:${minutes} da ${this.non} ta non, ${this.lagmon} ta lagmon, ${this.cola} ta cola mavjud`
+    );
+  }
+
+  sotish(product, a) {
+    this[product] -= a;
+    console.log(`Siz ${a} ta ${product} sotdingiz`);
+  }
+
+  qabul(product, b) {
+    this[product] += b;
+    console.log(`Siz ${b} ta ${product} sotib oldingiz`);
+  }
+}
+
+const shop = new magazin(4, 5, 2);
+
+shop.qoldiq();
+shop.qabul("non", 5);
