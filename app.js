@@ -62,6 +62,33 @@ app.post("/delete-item", (req, res) => {
   );
 });
 
+// Rejani o'zgartirish
+app.post("/edit-item", (req, res) => {
+  const id = req.body.id;
+  const new_input = req.body.new_input;
+
+  db.collection("plans").findOneAndUpdate(
+    { _id: new Mongodb.ObjectId(id) },
+    { $set: { reja: new_input } },
+    { returnDocument: "after" },
+    (err, data) => {
+      if (err) {
+        console.log("Xatolik yuz berdi!", err);
+        return res.status(500).json({ error: "Update error" });
+      }
+      res.json(data.value);
+    }
+  );
+});
+
+// Rejani o'chirish
+app.post("/delete-all", (req, res) => {
+  if (req.body.delete_all) {
+    db.collection("plans").deleteMany(function () {
+      res.json({ state: "hamma rejalar o'chirildi" });
+    });
+  }
+});
 app.get("/author", (req, res) => {
   res.render("author", { user: user });
 });

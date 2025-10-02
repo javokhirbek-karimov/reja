@@ -1,48 +1,35 @@
 console.log("FrontEnd JS ishga tushdi");
 const overlay = document.getElementById("overlay");
-const modal = document.getElementById("modal-delete");
+const modalDelete = document.getElementById("modal-delete");
+const modalEdit = document.getElementById("modal-edit");
 const noDelete = document.getElementById("no-delete");
 const yesDelete = document.getElementById("yes-delete");
+const saveChangeBtn = document.querySelector("#save-change button"); // form ichidagi button
+const inputChange = document.getElementById("input-edit");
+const deleteAll = document.getElementById("clean-all");
+
 let createField = document.getElementById("create-field");
 let createForm = document.getElementById("create-form");
+let currentEditId = null;
 
-// Rejani ko'rsatish
 function itemTamplete(item) {
-  return `<li
-          class="list-group-item list-group-item-action list-group-item-info d-flex align-items-center justify-content-between"
-        >
-          <span class="item-text">${item.reja}</span>
-          <div>
-          <span class="text-muted ml-2x  me-2">${item.time}</span>
-            <button
-              data-id="${item._id}"
-              class="edit-me btn btn-outline-success btn-sm mr-1"
-            >
-              O‘zgartirish
-            </button>
-            <button
-              data-id="${item._id}"
-              class="delete-me btn btn-outline-danger btn-sm"
-            >
-              O‘chirish
-            </button>
-          </div>
-        </li>`;
+  return `<li class="list-group-item list-group-item-action list-group-item-info d-flex align-items-center justify-content-between">
+      <span class="item-text">${item.reja}</span>
+      <div>
+        <span class="text-muted ml-2x me-2">${item.time}</span>
+        <button data-id="${item._id}" class="edit-me btn btn-success btn-sm mr-1">O‘zgartirish</button>
+        <button data-id="${item._id}" class="delete-me btn btn-danger btn-sm">O‘chirish</button>
+      </div>
+    </li>`;
 }
 
-// Xatoni ko'rsatish
-function noMessage(message) {
-  document.getElementById("message-edit").textContent = message;
-
-  createField.addEventListener("input", () => {
-    document.getElementById("message-edit").textContent = "";
-  });
+function noMessage(where, message) {
+  document.getElementById(where).textContent = message;
   setTimeout(() => {
-    document.getElementById("message-edit").textContent = "";
+    document.getElementById(where).textContent = "";
   }, 5000);
 }
 
-// Element qo'shish
 createForm.addEventListener("submit", function (e) {
   e.preventDefault();
   if (createField.value.trim()) {
@@ -55,41 +42,78 @@ createForm.addEventListener("submit", function (e) {
         createField.value = "";
         createField.focus();
       })
-      .catch((err) => {
-        console.log("Iltimos, qaytadan harakat qiling");
-      });
+      .catch((err) => console.log("Iltimos, qaytadan harakat qiling"));
   } else {
-    noMessage("Iltimos, reja kiriting");
+    noMessage("message-edit", "Iltimos, reja kiriting");
   }
+});
+
+overlay.addEventListener("click", () => {
+  modalEdit.classList.add("hidden");
+  modalDelete.classList.add("hidden");
+  overlay.classList.add("hidden");
+  currentEditId = null;
 });
 
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("delete-me")) {
-    modal.classList.remove("hidden");
+    modalDelete.classList.remove("hidden");
     overlay.classList.remove("hidden");
+    currentEditId = e.target.getAttribute("data-id");
 
-    yesDelete.addEventListener("click", () => {
-      axios
-        .post("/delete-item", { id: e.target.getAttribute("data-id") })
-        .then((response) => {
-          console.log(response.data);
-          e.target.parentElement.parentElement.remove();
-        })
-        .catch((err) => {
-          console.log("Iltimos, qaytadan harakat qiling!");
-        });
+    yesDelete.onclick = () => {
+      axios.post("/delete-item", { id: currentEditId }).then(() => {
+        document
+          .querySelector(`[data-id="${currentEditId}"]`)
+          .parentElement.parentElement.remove();
+        modalDelete.classList.add("hidden");
+        overlay.classList.add("hidden");
+      });
+    };
 
-      modal.classList.add("hidden");
+    noDelete.onclick = () => {
+      modalDelete.classList.add("hidden");
       overlay.classList.add("hidden");
-    });
-
-    noDelete.addEventListener("click", () => {
-      modal.classList.add("hidden");
-      overlay.classList.add("hidden");
-    });
+    };
   }
 
   if (e.target.classList.contains("edit-me")) {
-    alert("Siz edit tugmasini bosdingiz");
+    modalEdit.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+    currentEditId = e.target.getAttribute("data-id");
+    inputChange.value =
+      e.target.parentElement.parentElement.querySelector(
+        ".item-text"
+      ).textContent;
+    inputChange.focus();
   }
+});
+
+saveChangeBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (!currentEditId) return;
+  if (!inputChange.value.trim()) {
+    noMessage("edit-message", "Iltimos, reja nomini o'zgartiring!");
+    return;
+  }
+
+  axios
+    .post("/edit-item", { id: currentEditId, new_input: inputChange.value })
+    .then(() => {
+      document
+        .querySelector(`[data-id="${currentEditId}"]`)
+        .parentElement.parentElement.querySelector(".item-text").textContent =
+        inputChange.value;
+      modalEdit.classList.add("hidden");
+      overlay.classList.add("hidden");
+      currentEditId = null;
+    })
+    .catch(() => console.log("Iltimos, qaytadan harakat qiling!"));
+});
+
+deleteAll.addEventListener("click", () => {
+  axios.post("/delete-all", { delete_all: true }).then((response) => {
+    alert(response.data.state);
+    document.location.reload();
+  });
 });

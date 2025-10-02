@@ -79,7 +79,7 @@ async function run() {
 run(); */
 
 // A-task
-function countLetter(harf, gap) {
+/* function countLetter(harf, gap) {
   let count = 0;
   for (let i = 0; i < gap.length; i++) {
     if (gap[i] === harf) {
@@ -105,11 +105,11 @@ function countDigit(a) {
   }
 }
 
-countDigit("dsdf3457628hdasaskb3452nd");
+countDigit("dsdf3457628hdasaskb3452nd"); */
 
 // C-task
 
-class magazin {
+/* class magazin {
   constructor(non, lagmon, cola) {
     this.non = non;
     this.lagmon = lagmon;
@@ -141,4 +141,29 @@ class magazin {
 const shop = new magazin(4, 5, 2);
 
 shop.qoldiq();
-shop.qabul("non", 5);
+shop.qabul("non", 5); */
+
+// D task
+
+function checkContent(a, b) {
+  if (typeof a !== "string" || typeof b !== "string") {
+    console.log("Iltimos, qo'shtirnoq ichida string kiriting");
+    return false;
+  } else {
+    if (a.length !== b.length) {
+      return false;
+    }
+    const first = a.split("").sort();
+    const second = b.split("").sort();
+
+    for (let i = 0; i < first.length; i++) {
+      if (first[i] !== second[i]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+}
+
+console.log(checkContent("mitgroup", "gmtiprou"));
