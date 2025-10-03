@@ -17,8 +17,8 @@ function itemTamplete(item) {
       <span class="item-text">${item.reja}</span>
       <div>
         <span class="text-muted ml-2x me-2">${item.time}</span>
-        <button data-id="${item._id}" class="edit-me btn btn-success btn-sm mr-1">O‘zgartirish</button>
-        <button data-id="${item._id}" class="delete-me btn btn-danger btn-sm">O‘chirish</button>
+        <button data-id="${item._id}" class="edit-me btn btn-outline-success btn-sm mr-1">O‘zgartirish</button>
+        <button data-id="${item._id}" class="delete-me btn btn-outline-danger btn-sm">O‘chirish</button>
       </div>
     </li>`;
 }

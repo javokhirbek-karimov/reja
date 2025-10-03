@@ -145,7 +145,7 @@ shop.qabul("non", 5); */
 
 // D task
 
-function checkContent(a, b) {
+/* function checkContent(a, b) {
   if (typeof a !== "string" || typeof b !== "string") {
     console.log("Iltimos, qo'shtirnoq ichida string kiriting");
     return false;
@@ -166,4 +166,13 @@ function checkContent(a, b) {
   }
 }
 
-console.log(checkContent("mitgroup", "gmtiprou"));
+console.log(checkContent("mitgroup", "gmtiprou")); */
+
+// E Task
+
+function getReverse(a) {
+  const reversedElement = a.split("").reverse().join("");
+  console.log(reversedElement);
+}
+
+getReverse("hello");

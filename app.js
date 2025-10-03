@@ -89,6 +89,8 @@ app.post("/delete-all", (req, res) => {
     });
   }
 });
+
+
 app.get("/author", (req, res) => {
   res.render("author", { user: user });
 });
