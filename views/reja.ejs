@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>Rejalar</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -12,6 +12,7 @@
     />
 
     <style>
+      /* Modallar */
       .modal-todo {
         position: fixed;
         max-width: 500px;
@@ -20,6 +21,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 100;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       }
 
       .overlay {
@@ -35,6 +37,92 @@
 
       .hidden {
         display: none;
+      }
+
+      /* List itemlar */
+      #item-list li {
+        flex-wrap: wrap;
+      }
+
+      #item-list li div {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        align-items: center;
+      }
+
+      .item-text {
+        word-break: break-word;
+        margin-right: 10px;
+      }
+
+      /* Tugmalar */
+      button {
+        cursor: pointer;
+      }
+
+      /* Mobil uchun maxsus */
+      @media (max-width: 576px) {
+        h1.display-4 {
+          font-size: 1.8rem;
+        }
+
+        #create-field {
+          font-size: 0.9rem;
+          margin-bottom: 5px;
+        }
+
+        #create-form .btn {
+          font-size: 0.85rem;
+          padding: 0.35rem 0.6rem;
+        }
+
+        #item-list li {
+          font-size: 0.85rem;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        #item-list li div {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-top: 5px;
+        }
+
+        .modal-todo {
+          width: 95%;
+          top: 35%;
+        }
+
+        .modal-todo h4 {
+          font-size: 1rem;
+        }
+
+        .modal-todo .btn {
+          font-size: 0.85rem;
+          padding: 0.35rem 0.6rem;
+        }
+
+        #clean-all {
+          font-size: 0.85rem;
+          padding: 0.35rem 0.6rem;
+        }
+      }
+
+      /* Tabletlarga moslash */
+      @media (max-width: 768px) {
+        #create-field {
+          flex: 1 1 100%;
+        }
+
+        #create-form .d-flex {
+          flex-direction: column;
+        }
+
+        #create-form .btn {
+          width: 100%;
+          margin-top: 5px;
+        }
       }
     </style>
   </head>
